@@ -56,6 +56,8 @@ section { padding-block: 60px; border-top: 1px solid var(--line); }
 .proyectos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
 .card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; max-width: 100%; }
+.card > a { display: block; border-bottom: 1px solid var(--line); }
+.card > a:hover img { opacity: 0.9; }
 .card .cuerpo { padding: 20px 22px 22px; display: grid; gap: 10px; align-content: start; flex: 1; }
 .card .tipo { font: 500 0.74rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--warm); }
 .card p { color: var(--muted); font-size: 0.97rem; }
@@ -122,7 +124,7 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
     <div class="head">
       <p class="eyebrow">Proyectos</p>
       <h2>Lo que he construido</h2>
-      <p>Productos que tengo publicados y proyectos hechos en equipo.</p>
+      <p>Productos propios, sistemas que desarrollo para Acosta | IA &amp; Research y proyectos hechos en equipo. Toca la imagen para abrir cada uno.</p>
     </div>
     <div class="proyectos">
       <article class="card">
@@ -143,6 +145,46 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
           <p>Servidor MCP de pago para vender herramientas de IA como conector de Claude. Cobro con Mercado Pago o códigos de canje, un enlace por cliente con vencimiento y cuota diaria, y detección de uso compartido.</p>
           <div class="tags"><span>TypeScript</span><span>MCP SDK</span><span>Cloudflare Workers</span><span>Mercado Pago</span></div>
           <div class="links"><a href="https://kit-mcp-latam.stebandioses.workers.dev" target="_blank" rel="noopener">Ver el producto →</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <a href="https://acostaresearch.com" target="_blank" rel="noopener"><img src="img/acosta.jpg" alt="Portada de la plataforma Acosta IA &amp; Research" loading="lazy"></a>
+        <div class="cuerpo">
+          <span class="tipo">En producción · Acosta | IA &amp; Research</span>
+          <h3>Plataforma Acosta | IA &amp; Research</h3>
+          <p>Plataforma web de cursos y herramientas de IA para hacer tesis y artículos científicos, usada por tesistas de varios países. Desarrollé el frontend y el backend: catálogo y carrito, pagos con Culqi y PayPal, licencias, panel de administración y la integración con Scopus, OpenAlex, Zotero y Mendeley.</p>
+          <div class="tags"><span>Angular</span><span>Express</span><span>Prisma</span><span>MySQL</span><span>VPS Linux</span></div>
+          <div class="links"><a href="https://acostaresearch.com" target="_blank" rel="noopener">Ver la web →</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <a href="https://acostaresearch.com/planes" target="_blank" rel="noopener"><img src="img/conector.jpg" alt="Paquetes del método de tesis que se usan desde Claude y ChatGPT" loading="lazy"></a>
+        <div class="cuerpo">
+          <span class="tipo">En producción · Acosta | IA &amp; Research</span>
+          <h3>Conector MCP del Método de Tesis</h3>
+          <p>Servidor MCP que lleva el método de tesis al chat de Claude, ChatGPT y Grok: guía la redacción por capítulos, busca fuentes reales en Scopus y OpenAlex, cita en 15 normas (APA 7, Vancouver, Chicago…) y arma el Word con el formato de cada universidad.</p>
+          <div class="tags"><span>TypeScript</span><span>MCP</span><span>OAuth</span><span>citeproc</span><span>Word (docx)</span></div>
+          <div class="links"><a href="https://acostaresearch.com/planes" target="_blank" rel="noopener">Ver los paquetes →</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <a href="https://huella.acostaresearch.com" target="_blank" rel="noopener"><img src="img/huella.jpg" alt="Página de Huella IA" loading="lazy"></a>
+        <div class="cuerpo">
+          <span class="tipo">En producción · Acosta | IA &amp; Research</span>
+          <h3>Huella IA: detector de texto con IA</h3>
+          <p>Detector de texto generado con IA para trabajos académicos, con un modelo propio entrenado con reportes reales y servido en ONNX. Analiza Word o PDF párrafo por párrafo, marca los de riesgo y entrega un reporte en PDF. Prueba gratis de 5 análisis al día.</p>
+          <div class="tags"><span>Python</span><span>FastAPI</span><span>Transformers</span><span>ONNX</span></div>
+          <div class="links"><a href="https://huella.acostaresearch.com" target="_blank" rel="noopener">Probar Huella IA →</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <a href="https://epicuro.ai" target="_blank" rel="noopener"><img src="img/epicuro.jpg" alt="Pantalla de inicio de Epicuro.ai" loading="lazy"></a>
+        <div class="cuerpo">
+          <span class="tipo">En producción · Acosta | IA &amp; Research</span>
+          <h3>Epicuro.ai: asistente de IA propio</h3>
+          <p>Asistente conversacional al estilo de ChatGPT construido sobre la API de Claude: chats, proyectos, fuentes propias, conectores y skills, dictado por voz y planes por créditos según el modelo que elija el usuario.</p>
+          <div class="tags"><span>Claude API</span><span>Angular</span><span>Express</span><span>Streaming</span></div>
+          <div class="links"><a href="https://epicuro.ai" target="_blank" rel="noopener">Abrir Epicuro →</a></div>
         </div>
       </article>
       <article class="card">
@@ -190,6 +232,7 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
     <div class="head"><p class="eyebrow">Experiencia</p><h2>Trayectoria</h2></div>
     <div class="tiempo">
       <div class="item"><span class="fecha">Nov 2026 – hoy</span><div><h3>Desarrollador independiente</h3><p>Publico herramientas de datos con IA en Apify Store y vendo kits de software para desarrolladores de Latinoamérica.</p></div></div>
+      <div class="item"><span class="fecha">2026 – hoy</span><div><h3>Desarrollador full stack · Acosta | IA &amp; Research</h3><p>Desarrollo y mantengo la plataforma, el conector MCP, el detector Huella IA y el asistente Epicuro.ai: pagos, panel de administración, despliegue en VPS y monitoreo.</p></div></div>
       <div class="item"><span class="fecha">Ene – Abr 2026</span><div><h3>Pasante de Desarrollo de Software · SEMINCO</h3><p>Plataforma web institucional para una empresa minera: interfaces en Angular, panel administrativo y datos en MySQL.</p></div></div>
       <div class="item"><span class="fecha">2024 – hoy</span><div><h3>Diseño y Desarrollo de Software · Tecsup</h3><p>6.º ciclo.</p></div></div>
     </div>
