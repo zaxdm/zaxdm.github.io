@@ -65,9 +65,15 @@ section { padding-block: 60px; border-top: 1px solid var(--line); }
 .tags span { font: 500 0.78rem var(--mono); border: 1px solid var(--line); padding: 3px 9px; border-radius: 999px; color: var(--muted); }
 .card .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 4px; font-weight: 600; font-size: 0.95rem; }
 .card .links a { text-decoration: none; }
-.sinimg { aspect-ratio: 16 / 9; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), #2a1f6e); color: #fff; font: 700 1.6rem var(--display); text-align: center; padding: 20px; }
-.sinimg.b { background: linear-gradient(135deg, #1f7a6e, #0e3b35); }
-.sinimg.c { background: linear-gradient(135deg, var(--warm), #8a4f0c); }
+.destacado { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; }
+.destacado > a { border-bottom: 0; border-right: 1px solid var(--line); }
+.destacado img { height: 100%; object-position: 12% center; }
+.subtitulo { margin: 48px 0 18px; font-size: 1.2rem; }
+.otros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+.mini { display: grid; gap: 8px; align-content: start; padding: 20px 0 22px 18px; border-left: 3px solid var(--accent); border-top: 1px solid var(--line); min-width: 0; }
+.mini:nth-child(even) { border-left-color: var(--warm); }
+.mini .tipo { font: 500 0.74rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.mini p { color: var(--muted); font-size: 0.95rem; }
 
 .tiempo { display: grid; gap: 22px; max-width: 760px; }
 .item { display: grid; grid-template-columns: 170px 1fr; gap: 20px; }
@@ -86,6 +92,9 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
   .hero { grid-template-columns: 1fr; gap: 24px; }
   .hero img { width: 150px; height: 150px; }
   .proyectos { grid-template-columns: minmax(0, 1fr); }
+  .destacado { grid-template-columns: minmax(0, 1fr); }
+  .destacado > a { border-right: 0; border-bottom: 1px solid var(--line); }
+  .otros { grid-template-columns: minmax(0, 1fr); }
   .skills { grid-template-columns: 1fr 1fr; }
   .navlinks { display: none; }
 }
@@ -147,24 +156,15 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
           <div class="links"><a href="https://kit-mcp-latam.stebandioses.workers.dev" target="_blank" rel="noopener">Ver el producto →</a></div>
         </div>
       </article>
-      <article class="card">
+      <article class="card destacado">
         <a href="https://acostaresearch.com" target="_blank" rel="noopener"><img src="img/acosta.jpg" alt="Portada de la plataforma Acosta IA &amp; Research" loading="lazy"></a>
         <div class="cuerpo">
           <span class="tipo">En producción · Acosta | IA &amp; Research</span>
-          <h3>Plataforma Acosta | IA &amp; Research</h3>
-          <p>Plataforma web de cursos y herramientas de IA para hacer tesis y artículos científicos, usada por tesistas de varios países. Desarrollé el frontend y el backend: catálogo y carrito, pagos con Culqi y PayPal, licencias, panel de administración y la integración con Scopus, OpenAlex, Zotero y Mendeley.</p>
-          <div class="tags"><span>Angular</span><span>Express</span><span>Prisma</span><span>MySQL</span><span>VPS Linux</span></div>
-          <div class="links"><a href="https://acostaresearch.com" target="_blank" rel="noopener">Ver la web →</a></div>
-        </div>
-      </article>
-      <article class="card">
-        <a href="https://acostaresearch.com/planes" target="_blank" rel="noopener"><img src="img/conector.jpg" alt="Paquetes del método de tesis que se usan desde Claude y ChatGPT" loading="lazy"></a>
-        <div class="cuerpo">
-          <span class="tipo">En producción · Acosta | IA &amp; Research</span>
-          <h3>Conector MCP del Método de Tesis</h3>
-          <p>Servidor MCP que lleva el método de tesis al chat de Claude, ChatGPT y Grok: guía la redacción por capítulos, busca fuentes reales en Scopus y OpenAlex, cita en 15 normas (APA 7, Vancouver, Chicago…) y arma el Word con el formato de cada universidad.</p>
-          <div class="tags"><span>TypeScript</span><span>MCP</span><span>OAuth</span><span>citeproc</span><span>Word (docx)</span></div>
-          <div class="links"><a href="https://acostaresearch.com/planes" target="_blank" rel="noopener">Ver los paquetes →</a></div>
+          <h3>Plataforma Acosta | IA &amp; Research y su conector MCP</h3>
+          <p>Plataforma web de cursos y herramientas de IA para hacer tesis y artículos científicos, usada por tesistas de varios países. Su conector MCP lleva el método al chat de Claude, ChatGPT y Grok: guía la redacción por capítulos, busca fuentes reales en Scopus y OpenAlex, cita en 15 normas y arma el Word con el formato de cada universidad.</p>
+          <p>Desarrollé el frontend, el backend y el conector: catálogo y carrito, pagos con Culqi y PayPal, licencias, panel de administración y la integración con Zotero y Mendeley.</p>
+          <div class="tags"><span>Angular</span><span>Express</span><span>Prisma</span><span>MySQL</span><span>MCP</span><span>OAuth</span><span>VPS Linux</span></div>
+          <div class="links"><a href="https://acostaresearch.com" target="_blank" rel="noopener">Ver la web →</a><a href="https://acostaresearch.com/planes" target="_blank" rel="noopener">Ver los paquetes →</a></div>
         </div>
       </article>
       <article class="card">
@@ -187,41 +187,33 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
           <div class="links"><a href="https://epicuro.ai" target="_blank" rel="noopener">Abrir Epicuro →</a></div>
         </div>
       </article>
-      <article class="card">
-        <div class="sinimg">Claude<br>manos libres</div>
-        <div class="cuerpo">
-          <span class="tipo">Proyecto propio</span>
-          <h3>Claude manos libres</h3>
-          <p>Control de la PC por voz: le hablas a Claude y abre programas, mira la pantalla, hace clic y escribe, y te responde en voz alta. Incluye un servidor MCP propio para Windows y un instalador de un clic.</p>
-          <div class="tags"><span>Python</span><span>MCP</span><span>Windows UI Automation</span><span>Voz</span></div>
-        </div>
+    </div>
+
+    <h3 class="subtitulo">Más proyectos</h3>
+    <div class="otros">
+      <article class="mini">
+        <span class="tipo">Proyecto propio</span>
+        <h3>Claude manos libres</h3>
+        <p>Control de la PC por voz: le hablas a Claude y abre programas, mira la pantalla, hace clic y escribe, y te responde en voz alta. Incluye un servidor MCP propio para Windows y un instalador de un clic.</p>
+        <div class="tags"><span>Python</span><span>MCP</span><span>Windows UI Automation</span><span>Voz</span></div>
       </article>
-      <article class="card">
-        <div class="sinimg b">OS-Core<br>asistente</div>
-        <div class="cuerpo">
-          <span class="tipo">Proyecto propio</span>
-          <h3>Asistente OS-Core</h3>
-          <p>Asistente con un núcleo determinista que decide qué herramienta ejecutar con reglas, sin depender de servicios de IA, y una voz sintetizada propia. Solo recurre a un modelo de lenguaje cuando no entiende el pedido.</p>
-          <div class="tags"><span>Python</span><span>Arquitectura</span><span>Síntesis de voz</span><span>Pruebas</span></div>
-        </div>
+      <article class="mini">
+        <span class="tipo">Proyecto propio</span>
+        <h3>Asistente OS-Core</h3>
+        <p>Asistente con un núcleo determinista que decide qué herramienta ejecutar con reglas, sin depender de servicios de IA, y una voz sintetizada propia. Solo recurre a un modelo de lenguaje cuando no entiende el pedido.</p>
+        <div class="tags"><span>Python</span><span>Arquitectura</span><span>Síntesis de voz</span><span>Pruebas</span></div>
       </article>
-      <article class="card">
-        <div class="sinimg c">LavaYa</div>
-        <div class="cuerpo">
-          <span class="tipo">Proyecto en equipo · Tecsup · 2026</span>
-          <h3>LavaYa: gestión de lavandería</h3>
-          <p>Sistema web y app móvil para administrar una lavandería, con funciones por rol: administrador, empleado, cliente y repartidor. Desarrollé funcionalidades de la app en Flutter y su integración con el backend.</p>
-          <div class="tags"><span>Flutter</span><span>Express</span><span>Sequelize</span><span>MySQL</span></div>
-        </div>
+      <article class="mini">
+        <span class="tipo">En equipo · Tecsup · 2026</span>
+        <h3>LavaYa: gestión de lavandería</h3>
+        <p>Sistema web y app móvil para administrar una lavandería, con funciones por rol: administrador, empleado, cliente y repartidor. Desarrollé funcionalidades de la app en Flutter y su integración con el backend.</p>
+        <div class="tags"><span>Flutter</span><span>Express</span><span>Sequelize</span><span>MySQL</span></div>
       </article>
-      <article class="card">
-        <div class="sinimg b">ReeFood</div>
-        <div class="cuerpo">
-          <span class="tipo">Proyecto en equipo · Tecsup · 2025</span>
-          <h3>ReeFood: delivery y donación de alimentos</h3>
-          <p>Plataforma de delivery de comida y donación de alimentos con backend en Django, panel en Spring Boot, app Android y web en React. Trabajé en módulos de la app móvil y la integración entre servicios.</p>
-          <div class="tags"><span>Kotlin</span><span>Django</span><span>Spring Boot</span><span>React</span></div>
-        </div>
+      <article class="mini">
+        <span class="tipo">En equipo · Tecsup · 2025</span>
+        <h3>ReeFood: delivery y donación de alimentos</h3>
+        <p>Plataforma de delivery de comida y donación de alimentos con backend en Django, panel en Spring Boot, app Android y web en React. Trabajé en módulos de la app móvil y la integración entre servicios.</p>
+        <div class="tags"><span>Kotlin</span><span>Django</span><span>Spring Boot</span><span>React</span></div>
       </article>
     </div>
   </div>
