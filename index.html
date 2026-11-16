@@ -65,9 +65,11 @@ section { padding-block: 60px; border-top: 1px solid var(--line); }
 .tags span { font: 500 0.78rem var(--mono); border: 1px solid var(--line); padding: 3px 9px; border-radius: 999px; color: var(--muted); }
 .card .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 4px; font-weight: 600; font-size: 0.95rem; }
 .card .links a { text-decoration: none; }
-.destacado { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; }
+.destacado { grid-column: 1 / -1; display: grid; grid-template-columns: 1.3fr 1fr; }
 .destacado > a { border-bottom: 0; border-right: 1px solid var(--line); }
-.destacado img { height: 100%; object-position: 12% center; }
+.destacado > a { background: #fff; display: grid; place-items: center; }
+.destacado img { height: 100%; aspect-ratio: auto; object-fit: contain; }
+.card > a:focus-visible { outline-offset: -3px; }
 .subtitulo { margin: 48px 0 18px; font-size: 1.2rem; }
 .otros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
 .mini { display: grid; gap: 8px; align-content: start; padding: 20px 0 22px 18px; border-left: 3px solid var(--accent); border-top: 1px solid var(--line); min-width: 0; }
@@ -194,13 +196,13 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
       <article class="mini">
         <span class="tipo">Proyecto propio</span>
         <h3>Claude manos libres</h3>
-        <p>Control de la PC por voz: le hablas a Claude y abre programas, mira la pantalla, hace clic y escribe, y te responde en voz alta. Incluye un servidor MCP propio para Windows y un instalador de un clic.</p>
+        <p>Claude controla tu PC por voz: le hablas y abre programas, mira la pantalla, hace clic y escribe, y te responde en voz alta. Incluye un servidor MCP propio para Windows y un instalador de un clic.</p>
         <div class="tags"><span>Python</span><span>MCP</span><span>Windows UI Automation</span><span>Voz</span></div>
       </article>
       <article class="mini">
         <span class="tipo">Proyecto propio</span>
         <h3>Asistente OS-Core</h3>
-        <p>Asistente con un núcleo determinista que decide qué herramienta ejecutar con reglas, sin depender de servicios de IA, y una voz sintetizada propia. Solo recurre a un modelo de lenguaje cuando no entiende el pedido.</p>
+        <p>Asistente que funciona sin IA ni internet: un núcleo propio decide con reglas qué herramienta usar (notas, datos, rutas) y genera su propia voz. Solo consulta un modelo de lenguaje cuando no entiende el pedido.</p>
         <div class="tags"><span>Python</span><span>Arquitectura</span><span>Síntesis de voz</span><span>Pruebas</span></div>
       </article>
       <article class="mini">
